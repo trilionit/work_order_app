@@ -1,0 +1,18 @@
+{
+  "name": "trilionit/work_order_app",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "authors": [
+    {
+      "name": "Prince O.",
+      "email": "prince@trilionit.com"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.4"
+  }
+}
