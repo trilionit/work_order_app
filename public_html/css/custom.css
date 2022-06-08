@@ -1,10 +1,22 @@
-#list1 .form-control {
-  border-color: transparent;
+.input-form-control {
+  border-color: #e8e5e5;
 }
-#list1 .form-control:focus {
-  border-color: transparent;
+.input-form-control:focus {
+  border-color: #c1c0c0;
   box-shadow: none;
 }
-#list1 .select-input.form-control[readonly]:not([disabled]) {
+
+.select-input.form-control[readonly]:not([disabled]) {
   background-color: #fbfbfb;
+}
+.text-small {
+  font-size: 0.8rem !important;
+}
+.invalid-feedback {
+  padding: 0.5rem 0;
+  color: #f93154;
+  display: block;
+}
+.select-date {
+  border: 1px solid #eff1f2 !important;
 }
