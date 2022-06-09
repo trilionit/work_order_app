@@ -1,20 +1,15 @@
+const { toggleWorkOrderForm } = require("./events/general");
+const { processAddWorkOrderForm } = require("./forms/work_order");
+
 const setDueDateButton = document.getElementById("set-due-date-button");
+const addWorkOrderForm = document.getElementById("add-work-order-form");
 
 if (typeof setDueDateButton !== "undefined" && setDueDateButton !== null) {
-  setDueDateButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    const targetID = e.target.getAttribute("data-id");
-    const showComponent = document.getElementById(`${targetID}`);
-    const datePicker = document.getElementById("datepicker");
-    const validate_class = "validate-input";
+  setDueDateButton.addEventListener("click", toggleWorkOrderForm);
+}
 
-    showComponent.style.display =
-      showComponent.style.display === "block" ? "none" : "block";
-
-    showComponent.style.display === "block"
-      ? datePicker.classList.add(validate_class)
-      : datePicker.classList.remove(validate_class);
-  });
+if (typeof addWorkOrderForm !== "undefined" && addWorkOrderForm !== null) {
+  addWorkOrderForm.addEventListener("submit", processAddWorkOrderForm);
 }
 // Datetime picker
 new tempusDominus.TempusDominus(document.getElementById("datetime"));

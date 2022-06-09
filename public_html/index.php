@@ -29,6 +29,6 @@ $Scheduling = new Scheduling;
 $app->router->get('/', [$Pages, 'home']);
 
 # Scheduling
-$app->router->post('/add', [$Scheduling, 'add']);
+$app->router->post('/api/schedule', [$Scheduling, 'add']);
 
 $app->run();

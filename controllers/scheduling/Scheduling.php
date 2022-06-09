@@ -12,6 +12,7 @@ class Scheduling
 
   public function add(Request $request)
   {
-    print_r("Adder");
+    $posts = $request->getBody();
+    print_r($posts);
   }
 }

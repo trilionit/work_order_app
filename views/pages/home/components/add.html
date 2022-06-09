@@ -1,8 +1,8 @@
 <div class="pb-2">
   <div class="card">
     <div class="card-body">
-      <form id="add-form" method="post">
-        <div class="invalid-feedback text-small fw-light" id="invalid-add">
+      <form id="add-work-order-form" method="post">
+        <div class="invalid-feedback text-small fw-light" id="invalid-name">
           New Work Order is required...
         </div>
         <div class="form-row">
@@ -10,6 +10,7 @@
             <div class="input-group">
               <input
                 type="text"
+                name = "name"
                 class="form-control input-form-control form-control-lg validate-input form-input"
                 placeholder="Add new..."
               />
@@ -28,7 +29,7 @@
                 </a>  
               </span>
               <div class="form-button">
-                <button type="button" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">Add</button>
               </div>
             </div>
             </div>
@@ -36,11 +37,15 @@
         </div>
         <div class="d-flex flex-row align-items-right mx-3">
           <div id="add-date-component" class="col-11 mb-4 pb-4 set-due-date">
+            <div class="invalid-feedback text-small fw-light" id="invalid-datepicker">
+              Please choose a date...
+            </div>
             <div class="input-group date" id="datetime" data-target-input="nearest">
               <input 
                 class="form-control input-form-control form-control-lg form-input datetimepicker-input" 
                 data-target="#datetime"
-                id="datepicker" 
+                id="datepicker"
+                name="datepicker"
                 placeholder="Click to select date" 
                 type="text" 
               />
