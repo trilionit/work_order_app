@@ -1,22 +1,52 @@
+.card {
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+}
+.header {
+  border-radius: 0.75rem;
+  background-color: #eff1f2;
+  box-shadow: 10px 5px 10px #eff1f2;
+}
 .input-form-control {
-  border-color: #e8e5e5;
+  border-color: #eff1f2;
+  font-size: 0.85rem;
 }
 .input-form-control:focus {
-  border-color: #c1c0c0;
+  border-color: #e8e5e5;
   box-shadow: none;
 }
-
 .select-input.form-control[readonly]:not([disabled]) {
   background-color: #fbfbfb;
 }
 .text-small {
   font-size: 0.8rem !important;
 }
+
+.input-group-text {
+  border-color: #e8e5e5 !important;
+  -webkit-border-top-right-radius: 5px !important;
+  -webkit-border-bottom-right-radius: 5px !important;
+  -moz-border-radius-topright: 5px !important;
+  -moz-border-radius-bottomright: 5px !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+.form-select option {
+  color: #787878;
+}
+.form-button {
+  margin: auto auto auto 0.5rem !important;
+}
+.set-due-date {
+  display: none;
+}
 .invalid-feedback {
-  padding: 0.5rem 0;
+  padding: 0.1rem;
   color: #f93154;
   display: block;
 }
+
 .select-date {
   border: 1px solid #eff1f2 !important;
 }
