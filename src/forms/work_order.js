@@ -26,14 +26,20 @@ export const processAddWorkOrderForm = (e) => {
         payload.token = token;
         console.log(payload);
         // TODO: Figure out async fetch post data isn't transferring payload to backend
-        $.ajax({
-          type: "POST",
-          url: "/api/schedule",
-          data: payload,
-          dataType: "JSON",
-        }).then((res) => {
-          console.log(res);
+        // $.ajax({
+        //   type: "POST",
+        //   url: "/api/schedule",
+        //   data: payload,
+        //   dataType: "JSON",
+        // }).then((res) => {
+        //   console.log(res);
+        // });
+
+        const request = new Request("/api/schedule", {
+          method: "POST",
+          body: payload,
         });
+        fetch(request).then((res) => console.log(res));
       });
   }
 };

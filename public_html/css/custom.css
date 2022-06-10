@@ -49,3 +49,25 @@
 .select-date {
   border: 1px solid #eff1f2 !important;
 }
+.form-check-box {
+  margin-top: 0.5rem;
+}
+.text-dark {
+  color: #787878 !important;
+}
+.text-darker {
+  color: #262626 !important;
+}
+.listing {
+  padding: 1rem;
+}
+
+.list span {
+  padding-top: 0;
+  margin: 0 auto auto 0.5rem !important;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.edit-list {
+  /* background-color: #723c3c !important; */
+}

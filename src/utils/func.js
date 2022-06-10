@@ -78,28 +78,3 @@ export const showListAlert = (input) => {
   });
   return 1;
 };
-
-export const formatDate = (date, format) => {
-  let this_date = new Date(date);
-  let this_time = this_date.getTime();
-  let format_date;
-  if (this_time == 0 || this_time == NaN) {
-    format_date = "";
-  } else {
-    format_date = moment(date).format(format);
-  }
-  return format_date;
-};
-
-export const formatDateTimeZone = (object) => {
-  let date = new Date(object.date);
-  let time = date.getTime();
-
-  let format;
-  if (time == 0 || time == NaN) {
-    format = "";
-  } else {
-    format = moment(date).tz(object.timezone).format(object.format);
-  }
-  return format;
-};
