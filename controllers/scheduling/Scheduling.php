@@ -24,17 +24,23 @@ class Scheduling
         0 => [
           'id' => 1,
           'task' => 'Buy groceries for next week',
-          'created_at' => '28th Jun 2020'
+          'start_date' => '2022-01-12 13:44:24',
+          'end_date' => '2022-01-12 13:44:24',
+          'status' => 'active'
         ],
         1 => [
           'id' => 2,
           'task' => 'Renew car insurance',
-          'created_at' => '20th Jul 2020'
+          'start_date' => '2022-01-12 13:44:24',
+          'end_date' => '',
+          'status' => 'inactive'
         ],
         2 => [
           'id' => 3,
           'task' => 'Sign up for online course',
-          'created_at' => '1st Oct 2020'
+          'start_date' => '2022-01-12 13:44:24',
+          'end_date' => '2022-10-12 13:44:24',
+          'status' => 'active'
         ],
       ]
     ];

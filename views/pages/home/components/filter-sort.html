@@ -2,16 +2,23 @@
   <hr class="my-4" />
   <div class="d-flex justify-content-end align-items-center mb-4 pt-2 pb-3">
     <p class="small mb-0 me-2 text-muted">Filter</p>
-    <select class="form-select form-select-lg mb-3">
-      <option value="1">All</option>
-      <option value="2">Completed</option>
-      <option value="3">Active</option>
-      <option value="4">Has due date</option>
+    <select
+      class="form-select form-select-lg mb-3 filter-sort-lists"
+      data-id="filter-lists"
+    >
+      <option value="ALL">All</option>
+      <option value="COMPLETE">Completed</option>
+      <option value="ACTIVE">Active</option>
+      <option value="DATE">Has due date</option>
     </select>
     <p class="small mb-0 ms-4 me-2 text-muted">Sort</p>
-    <select class="form-select form-select-lg mb-3">
-      <option value="1">Added date</option>
-      <option value="2">Due date</option>
+    <select
+      class="form-select form-select-lg mb-3 filter-sort-lists"
+      data-id="sort-lists"
+      data-sort="descending"
+    >
+      <option value="start_date">Added date</option>
+      <option value="end_date">Due date</option>
     </select>
     <a style="color: #23af89" data-mdb-toggle="tooltip" title="Ascending"
       ><i class="fas fa-sort-amount-down-alt ms-2"></i

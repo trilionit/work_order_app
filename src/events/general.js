@@ -1,3 +1,15 @@
+const { renderWorkOrder } = require("../renders/render_work_order");
+export let workOrderData = [];
+export let statusEnums = Object.freeze({
+  ADDDATE: true,
+  ALL: true,
+  DATE: true,
+  DUEDATE: true,
+  ACTIVE: "active",
+  COMPLETE: "complete",
+  INACTIVE: "inactive",
+});
+
 export const toggleWorkOrderForm = (e) => {
   e.preventDefault();
   const targetID = e.target.getAttribute("data-id");
@@ -17,62 +29,47 @@ export const toggleWorkOrderForm = (e) => {
 };
 
 export const processWorkOrder = (props) => {
-  console.log(props.length);
-  if (props.length > 0) {
-    let mappedProps = props
-      .map((tasks) => {
-        let div = `
-        <li key="${tasks.id}" class="list-group-item border-0 bg-transparent">
-        <div class="row">
-          <div class="col list">
-            <div class="form-check">
-              <input 
-                class="form-check-input form-check-box" 
-                type="checkbox" 
-                id=""
-                aria-label="..." />
-                <span class="text-darker">
-                  ${tasks.task}
-                </span> 
-            </div>
-          </div>
-          <div class="col text-end edit-list">
-            <div class="row">
-              <div class="col-12">
-                <a href="#!" 
-                  class="text-info" 
-                  data-mdb-toggle="tooltip" 
-                  title="Edit todo"
-                  >
-                  <i class="fas fa-pencil-alt me-3"></i>
-                </a>
-                <a href="#!" 
-                  class="text-danger" 
-                  data-mdb-toggle="tooltip" 
-                  title="Delete todo">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-              </div>
-              <div class="col-12">
-                <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
-                  <p class="small mb-0">
-                  <i class="fas fa-info-circle me-2"></i>
-                  ${tasks.created_at}
-                  </p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      `;
-        return div;
-      })
-      .join("");
-    let taskContainer = document.getElementById("list-tasks");
-    taskContainer.innerHTML = "";
-    taskContainer.innerHTML = mappedProps;
-  } else {
-    console.log("nothing to load");
+  workOrderData = props;
+  renderWorkOrder(workOrderData);
+};
+
+export const processFilterAndSortOrder = (e) => {
+  let targetID = e.target.getAttribute("data-id");
+  let targetValue = e.target.value;
+  let targetSort = e.target.getAttribute("data-sort");
+  if (targetID === "filter-lists") {
+    let filteredList = filterOrder(targetValue);
+    console.log(filteredList);
+  }
+  if (targetID === "sort-lists") {
+    let filteredList = sortOrder(targetSort, targetValue);
+    console.log(filteredList);
+  }
+};
+
+const filterOrder = (targetValue) => {
+  if (targetValue === "ALL") {
+    return workOrderData;
+  }
+  if (targetValue === "DATE") {
+    return workOrderData.filter((list) => list.end_date.length !== 0);
+  }
+  return workOrderData.filter(
+    (list) => list.status === statusEnums[targetValue]
+  );
+};
+
+const sortOrder = (targetSort, targetValue) => {
+  switch (targetSort) {
+    case "ascending":
+      return workOrderData.sort((a, b) => {
+        console.log(new Date(a[targetValue]));
+        new Date(a[targetValue]) - new Date(b[workOrderData]);
+      });
+    case "descending":
+      return workOrderData.sort((a, b) => {
+        console.log(new Date(b[targetValue]));
+        new Date(b[targetValue]) - new Date(a[workOrderData]);
+      });
   }
 };
